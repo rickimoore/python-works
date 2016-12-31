@@ -33,8 +33,10 @@ def rename_files(path, prefix):
            count = count + 1
            os.rename(file_name, prefix + "-" + str(count) + "." + extention)
 
-        #return to originla directory
+        #return to original directory
 
     os.chdir(current_directory)
     
 rename_files(path, prefix)
+
+#Expected output: newPrefix-1.jpg, newPrefix-2.jpg, newPrefix-3.jpg, etc...
