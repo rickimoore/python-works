@@ -1,4 +1,3 @@
-# coding: utf-8
 import sys
 import os
 
@@ -6,7 +5,12 @@ import os
 path = str(sys.argv[1])
 prefix = str(sys.argv[2])
 
-#define function
+def extract_extention (file):
+
+    #break apart each string at the . for file extention
+    scrub = file.split(".")
+    
+    return scrub[1]
 
 def rename_files(path, prefix):
     
@@ -19,14 +23,11 @@ def rename_files(path, prefix):
     #if the path is correct list all the containing files
     file_list = os.listdir(path)
     
-    #init the counter
-    
     count = 0;
 
     for file_name in file_list:
-        #break apart each string at the . for file extention
-        scrub = file_name.split(".")
-        extention = scrub[1]
+        
+        extention = extract_extention(file_name)
         
         #for all passing if statement rename based on provided prefix and reatach correct extention
         if extention != "DS_Store":
